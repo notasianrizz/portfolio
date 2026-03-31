@@ -1,0 +1,41 @@
+/* ══════════════════════════════════════════
+   Boot Screen — tame.gg
+   ══════════════════════════════════════════ */
+
+#boot-screen {
+  position: fixed; inset: 0; z-index: 10000;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: #000;
+  transition: opacity 1s ease;
+}
+#boot-screen.hidden { opacity: 0; pointer-events: none; }
+
+.boot-logo {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: #fff;
+  letter-spacing: -0.04em;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: bootFadeIn 1s 0.3s ease forwards;
+}
+.boot-logo em { font-style: italic; color: #c8a96e; }
+
+.boot-bar-track {
+  width: 200px; height: 4px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  opacity: 0;
+  animation: bootFadeIn 0.6s 0.8s ease forwards;
+}
+.boot-bar-fill {
+  height: 100%; width: 0%;
+  background: #fff;
+  border-radius: 2px;
+  animation: bootFill 2s 1s ease-in-out forwards;
+}
+
+@keyframes bootFadeIn { to { opacity: 1; } }
+@keyframes bootFill { to { width: 100%; } }

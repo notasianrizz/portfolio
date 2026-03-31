@@ -512,23 +512,17 @@ async function fetchGitHub() {
 }
 fetchGitHub();
 
-// ── Start screen enter
-const startScreen = document.getElementById('start-screen');
-const ssLoader = document.getElementById('ss-loader');
-const enterBtn = document.getElementById('enterBtn');
-
+// ── Boot screen (auto-play)
+const bootScreen = document.getElementById('boot-screen');
 document.body.classList.add('locked');
+window.scrollTo({ top: 0, behavior: 'instant' });
 
-enterBtn.addEventListener('click', () => {
-  startScreen.classList.add('hidden');
-  ssLoader.classList.add('visible');
-  window.scrollTo({ top: 0, behavior: 'instant' });
+if (bootScreen) {
   setTimeout(() => {
-    ssLoader.classList.add('fade-out');
+    bootScreen.classList.add('hidden');
     setTimeout(() => {
-      ssLoader.classList.remove('visible');
-      ssLoader.classList.remove('fade-out');
+      bootScreen.style.display = 'none';
       document.body.classList.remove('locked');
-    }, 450);
-  }, 1800);
-});
+    }, 1000);
+  }, 3200);
+}
