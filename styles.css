@@ -862,7 +862,8 @@ nav {
 }
 
 .hero-name {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Syne', sans-serif;
+  font-weight: 400;
   font-size: clamp(4rem, 10vw, 9rem);
   line-height: .95;
   letter-spacing: -.04em;
@@ -871,6 +872,7 @@ nav {
   animation: fadeUp .8s .25s forwards;
   position: relative;
   z-index: 2;
+  text-align: center;
 }
 
 .hero-name em {
