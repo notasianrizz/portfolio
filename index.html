@@ -22,6 +22,7 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="macos.css" />
+  <link rel="stylesheet" href="win2k.css" />
 
   <!-- Vercel Web Analytics -->
   <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
@@ -48,7 +49,7 @@
   <div id="cur"></div>
   <div id="cur-ring"></div>
 
-  <div class="fixed-actions">
+  <div class="fixed-actions" style="display:none;">
     <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
       <span class="ti ti-moon">🌙</span>
       <span class="ti ti-sun">☀️</span>
@@ -56,17 +57,40 @@
   </div>
 
   <nav>
-    <a href="#hero" class="logo">tame<em>.gg</em></a>
+    <a href="#hero" class="logo">&#127381; Start</a>
     <ul class="nav-links">
-      <li><a href="#music">Status</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#community">MCTT</a></li>
+      <li><a href="#hero">🏠 tame.gg</a></li>
+      <li><a href="#music">🎵 Status</a></li>
+      <li><a href="#about">👤 About</a></li>
+      <li><a href="#portfolio">💼 Portfolio</a></li>
+      <li><a href="#community">🎮 MCTT</a></li>
     </ul>
+    <div class="w2k-tray">
+      <div class="fixed-actions" style="position:static;bottom:auto;right:auto;">
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+          <span class="ti ti-moon">🌙</span>
+          <span class="ti ti-sun">☀️</span>
+          <span style="font-size:9px;font-family:Tahoma,sans-serif;">Theme</span>
+        </button>
+      </div>
+      <div class="w2k-clock" id="w2kClock" style="
+        height:24px; padding:0 8px;
+        border-top:1px solid #808080; border-left:1px solid #808080;
+        border-right:1px solid #fff; border-bottom:1px solid #fff;
+        display:flex; align-items:center; gap:4px;
+        font-family:Tahoma,sans-serif; font-size:11px; color:#000;
+        min-width:64px; justify-content:center;
+      ">12:00</div>
+    </div>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
+  <style>
+    nav { justify-content: flex-start; gap: 4px; }
+    .w2k-tray { margin-left: auto; display: flex; align-items: center; gap: 2px; }
+    .fixed-actions { position: static !important; bottom: auto !important; right: auto !important; }
+  </style>
 
   <div class="mobile-menu" id="mobileMenu">
     <div class="mm-overlay" id="mmOverlay"></div>
@@ -81,6 +105,26 @@
   </div>
 
   <section id="hero">
+    <!-- Win2K window titlebar -->
+    <div class="w2k-titlebar">
+      <div class="w2k-titlebar-title">
+        <span class="w2k-titlebar-icon">🏠</span>
+        <span>Andrew Zandi — tame.gg</span>
+      </div>
+      <div class="w2k-titlebar-btns">
+        <div class="w2k-titlebar-btn" title="Minimize">_</div>
+        <div class="w2k-titlebar-btn" title="Maximize">□</div>
+        <div class="w2k-titlebar-btn" title="Close" style="color:#cc0000;font-weight:bold;">✕</div>
+      </div>
+    </div>
+    <div class="w2k-menubar">
+      <span><u>F</u>ile</span>
+      <span><u>E</u>dit</span>
+      <span><u>V</u>iew</span>
+      <span>F<u>a</u>vorites</span>
+      <span><u>H</u>elp</span>
+    </div>
+    <div style="padding:8px;">
     <div class="grid-lines"></div>
     <p class="hero-eyebrow">Charlotte, NC &nbsp;·&nbsp; Seattle, WA &nbsp;·&nbsp; Influencer</p>
     <h1 class="hero-name">Andrew <em>Zandi</em><img src="https://flagofiran.com/files/flag-of-iran-emoji-ios.png"
@@ -134,9 +178,30 @@
       <span>Scroll</span>
       <div class="scroll-line"></div>
     </div>
+    </div><!-- /win2k inner pad -->
+    <div class="w2k-statusbar">
+      <div class="w2k-statusbar-cell">tame.gg</div>
+      <div class="w2k-statusbar-cell">Charlotte, NC</div>
+      <div class="w2k-statusbar-cell">✔ Ready</div>
+    </div>
   </section>
 
   <section id="music">
+    <!-- Win2K window titlebar -->
+    <div class="w2k-titlebar">
+      <div class="w2k-titlebar-title">
+        <span class="w2k-titlebar-icon">🎵</span>
+        <span>Live Status — Windows Media Player</span>
+      </div>
+      <div class="w2k-titlebar-btns">
+        <div class="w2k-titlebar-btn">_</div>
+        <div class="w2k-titlebar-btn">□</div>
+        <div class="w2k-titlebar-btn" style="color:#cc0000;">✕</div>
+      </div>
+    </div>
+    <div class="w2k-menubar">
+      <span><u>F</u>ile</span><span><u>P</u>lay</span><span><u>V</u>iew</span><span><u>T</u>ools</span>
+    </div>
     <div class="sec-inner">
       <div class="music-c">
         <p class="sec-lbl rv">Live Status</p>
@@ -226,12 +291,28 @@
 
       </div>
     </div>
+    <div class="w2k-statusbar">
+      <div class="w2k-statusbar-cell">🔴 Now Playing</div>
+      <div class="w2k-statusbar-cell">pursian · Last.fm</div>
+    </div>
   </section>
 
   <section id="about">
+    <!-- Win2K window titlebar -->
+    <div class="w2k-titlebar">
+      <div class="w2k-titlebar-title">
+        <span class="w2k-titlebar-icon">👤</span>
+        <span>About Me — Properties</span>
+      </div>
+      <div class="w2k-titlebar-btns">
+        <div class="w2k-titlebar-btn">_</div>
+        <div class="w2k-titlebar-btn">□</div>
+        <div class="w2k-titlebar-btn" style="color:#cc0000;">✕</div>
+      </div>
+    </div>
     <div class="sec-inner">
       <p class="sec-lbl rv">About me</p>
-      <h2 class="sec-h rv">A Student,<br><em>supercharging my future</em></h2>
+      <h2 class="sec-h rv">A Student — <em>supercharging my future</em></h2>
       <div class="about-grid">
         <div>
           <div class="about-body rv d1">
@@ -262,12 +343,32 @@
         </div>
       </div>
     </div>
+    <div class="w2k-statusbar">
+      <div class="w2k-statusbar-cell">Charlotte, NC · Palisades HS</div>
+      <div class="w2k-statusbar-cell">Class of 2026</div>
+      <div class="w2k-statusbar-cell">✔ Done</div>
+    </div>
   </section>
 
   <section id="portfolio">
+    <!-- Win2K window titlebar -->
+    <div class="w2k-titlebar">
+      <div class="w2k-titlebar-title">
+        <span class="w2k-titlebar-icon">💼</span>
+        <span>Work Experience — My Computer</span>
+      </div>
+      <div class="w2k-titlebar-btns">
+        <div class="w2k-titlebar-btn">_</div>
+        <div class="w2k-titlebar-btn">□</div>
+        <div class="w2k-titlebar-btn" style="color:#cc0000;">✕</div>
+      </div>
+    </div>
+    <div class="w2k-menubar">
+      <span><u>F</u>ile</span><span><u>E</u>dit</span><span><u>V</u>iew</span><span>F<u>a</u>vorites</span><span><u>H</u>elp</span>
+    </div>
     <div class="sec-inner">
       <p class="sec-lbl rv">Experience & Work</p>
-      <h2 class="sec-h rv">What I've <em>been up to</em></h2>
+      <h2 class="sec-h rv">Work Experience</h2>
       <div class="port-grid">
         <div class="pc rv d1">
           <div class="pc-icon">🔥</div>
@@ -318,12 +419,29 @@
         </div>
       </div>
     </div>
+    <div class="w2k-statusbar">
+      <div class="w2k-statusbar-cell">6 items</div>
+      <div class="w2k-statusbar-cell">Charlotte, NC</div>
+      <div class="w2k-statusbar-cell">✔ Done</div>
+    </div>
   </section>
 
   <section id="community">
+    <!-- Win2K window titlebar -->
+    <div class="w2k-titlebar">
+      <div class="w2k-titlebar-title">
+        <span class="w2k-titlebar-icon">🎮</span>
+        <span>MCTT — Discord Community</span>
+      </div>
+      <div class="w2k-titlebar-btns">
+        <div class="w2k-titlebar-btn">_</div>
+        <div class="w2k-titlebar-btn">□</div>
+        <div class="w2k-titlebar-btn" style="color:#cc0000;">✕</div>
+      </div>
+    </div>
     <div class="sec-inner">
       <p class="sec-lbl rv">MCTT Community</p>
-      <h2 class="sec-h rv">Join the <em>server</em></h2>
+      <h2 class="sec-h rv">Join the Server</h2>
       <div class="comm-grid">
         <div>
           <div class="comm-text rv d1">
@@ -349,6 +467,10 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="w2k-statusbar">
+      <div class="w2k-statusbar-cell">discord.gg/mctt</div>
+      <div class="w2k-statusbar-cell">🟢 Online</div>
     </div>
   </section>
 
@@ -390,6 +512,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
+  <!-- Win2K Clock -->
+  <script>
+    function updateW2kClock() {
+      var el = document.getElementById('w2kClock');
+      if (!el) return;
+      var now = new Date();
+      var h = now.getHours(), m = now.getMinutes();
+      var ampm = h >= 12 ? 'PM' : 'AM';
+      h = h % 12 || 12;
+      el.textContent = h + ':' + (m < 10 ? '0' : '') + m + ' ' + ampm;
+    }
+    updateW2kClock();
+    setInterval(updateW2kClock, 10000);
+  </script>
   <script src="main.js"></script>
 </body>
 
