@@ -255,3 +255,46 @@ async function fetchGitHub() {
   } catch (e) { }
 }
 fetchGitHub();
+
+// ── Open-Meteo Weather
+const WEATHER_CODE_MAP = {
+  0: 'Clear sky', 1: 'Mainly clear', 2: 'Partly cloudy', 3: 'Overcast',
+  45: 'Fog', 48: 'Depositing rime fog', 51: 'Light drizzle', 53: 'Moderate drizzle', 55: 'Dense drizzle',
+  61: 'Slight rain', 63: 'Moderate rain', 65: 'Heavy rain', 71: 'Slight snow', 73: 'Moderate snow', 75: 'Heavy snow',
+  80: 'Slight rain showers', 81: 'Moderate rain showers', 82: 'Violent rain showers',
+  95: 'Thunderstorm', 96: 'Thunderstorm with slight hail', 99: 'Thunderstorm with heavy hail'
+};
+
+async function fetchWeather() {
+  try {
+    const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=35.2271,47.6062&longitude=-80.8431,-122.3321&current=temperature_2m,weather_code&temperature_unit=fahrenheit&timezone=auto');
+    if (!res.ok) return;
+    const data = await res.json();
+    
+    // Charlotte
+    if (data[0] && data[0].current) {
+      const tempClt = Math.round(data[0].current.temperature_2m);
+      const codeClt = data[0].current.weather_code;
+      const conditionClt = WEATHER_CODE_MAP[codeClt] || 'Unknown';
+      const timeClt = new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit' });
+      document.getElementById('nowWeatherCltTemp').textContent = `${tempClt}°F`;
+      document.getElementById('nowWeatherCltStatus').textContent = conditionClt;
+      document.getElementById('nowWeatherCltTime').textContent = `Local time: ${timeClt}`;
+    }
+    
+    // Seattle
+    if (data[1] && data[1].current) {
+      const tempSea = Math.round(data[1].current.temperature_2m);
+      const codeSea = data[1].current.weather_code;
+      const conditionSea = WEATHER_CODE_MAP[codeSea] || 'Unknown';
+      const timeSea = new Date().toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', hour: '2-digit', minute: '2-digit' });
+      document.getElementById('nowWeatherSeaTemp').textContent = `${tempSea}°F`;
+      document.getElementById('nowWeatherSeaStatus').textContent = conditionSea;
+      document.getElementById('nowWeatherSeaTime').textContent = `Local time: ${timeSea}`;
+    }
+  } catch (e) {
+    console.error('Weather fetch error:', e);
+  }
+}
+fetchWeather();
+setInterval(fetchWeather, 600000);
