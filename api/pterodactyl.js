@@ -14,11 +14,8 @@ let cachedData = null;
 let cacheTime = 0;
 const CACHE_TTL = 15000; // 15 seconds
 
-// Servers to display publicly (by name substring)
-const PUBLIC_SERVERS = [
-  'MCTTv1', 'MCTTv2', 'MCTTv3', 'hub', 'velo',
-  'parkour', 'one block'
-];
+// Servers to exclude from public display
+const EXCLUDED_SERVERS = ['dev', 'restapi'];
 
 function classifyServer(name, env) {
   const lower = name.toLowerCase();
@@ -74,13 +71,8 @@ module.exports = async (req, res) => {
       servers = (pteroData.data || [])
         .map(s => s.attributes)
         .filter(s => {
-          const name = s.name || '';
-          return PUBLIC_SERVERS.some(pub => name.toLowerCase().includes(pub.toLowerCase()));
-        })
-        .filter(s => {
-          // Exclude dev servers
           const name = (s.name || '').toLowerCase();
-          return !name.includes('dev') && !name.includes('restapi');
+          return !EXCLUDED_SERVERS.some(ex => name.includes(ex));
         })
         .map(s => ({
           name: cleanServerName(s.name),
