@@ -1,6 +1,10 @@
 {
+  "cleanUrls": true,
   "functions": {
     "api/spotify.js": {
+      "maxDuration": 10
+    },
+    "api/pterodactyl.js": {
       "maxDuration": 10
     }
   }
