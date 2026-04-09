@@ -26,7 +26,6 @@ function classifyServer(name, env) {
   if (lower.includes('velo') || jar.includes('bungeecord')) return 'proxy';
   if (lower.includes('hub')) return 'hub';
   if (lower.includes('parkour') || lower.includes('minigame')) return 'minigame';
-  if (lower.includes('one block') || lower.includes('modpack')) return 'modpack';
   if (lower.includes('mctt') || lower.includes('smp')) return 'survival';
   if (lower.includes('ak01') || lower.includes('archive')) return 'survival';
   return 'server';
