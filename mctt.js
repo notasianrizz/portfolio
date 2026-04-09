@@ -62,6 +62,30 @@ function renderNetworkBanner(network) {
   }
 }
 
+function srvStatusClass(srv) {
+  if (srv.suspended) return 'suspended';
+  switch (srv.current_state) {
+    case 'running':  return 'active';
+    case 'starting':
+    case 'stopping': return 'starting';
+    case 'stopped':
+    case 'offline':  return 'offline';
+    default:         return srv.current_state ? 'offline' : 'active';
+  }
+}
+
+function srvStatusLabel(srv) {
+  if (srv.suspended) return 'Suspended';
+  switch (srv.current_state) {
+    case 'running':  return 'Online';
+    case 'starting': return 'Starting';
+    case 'stopping': return 'Stopping';
+    case 'stopped':
+    case 'offline':  return 'Offline';
+    default:         return srv.current_state ? 'Offline' : 'Active';
+  }
+}
+
 function renderServers(servers) {
   const grid = document.getElementById('serverGrid');
   if (!servers || servers.length === 0) {
@@ -81,9 +105,9 @@ function renderServers(servers) {
         <div class="mctt-srv-type">${TYPE_LABELS[srv.type] || 'Server'}</div>
       </div>
       <div class="mctt-srv-meta">
-        <div class="mctt-srv-status ${srv.suspended ? 'suspended' : 'active'}">
+        <div class="mctt-srv-status ${srvStatusClass(srv)}">
           <span class="mctt-srv-dot"></span>
-          ${srv.suspended ? 'Suspended' : 'Active'}
+          ${srvStatusLabel(srv)}
         </div>
         <div class="mctt-srv-memory">${formatMemory(srv.memory_mb)} RAM</div>
       </div>
