@@ -87,7 +87,25 @@ module.exports = async (req, res) => {
           type: classifyServer(s.name, s.container?.environment),
           memory_mb: s.limits?.memory || 0,
           suspended: s.suspended || false,
+          identifier: s.identifier,
         }));
+
+      // Fetch live power state for each server via the Client API
+      const clientKey = process.env.PTERODACTYL_CLIENT_KEY || apiKey;
+      const resourceFetches = servers.map(srv =>
+        fetch(`${PANEL_URL}/api/client/servers/${srv.identifier}/resources`, {
+          headers: {
+            'Authorization': `Bearer ${clientKey}`,
+            'Accept': 'application/json',
+          },
+        }).then(r => r.ok ? r.json() : null).catch(() => null)
+      );
+      const resources = await Promise.all(resourceFetches);
+      servers = servers.map((srv, i) => {
+        const state = resources[i]?.attributes?.current_state || null;
+        const { identifier, ...rest } = srv;
+        return { ...rest, current_state: state };
+      });
     }
 
     // Parse Minecraft status

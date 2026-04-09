@@ -261,8 +261,13 @@
   background: #2ecc71;
 }
 
-.mctt-srv-status.suspended .mctt-srv-dot {
+.mctt-srv-status.suspended .mctt-srv-dot,
+.mctt-srv-status.offline .mctt-srv-dot {
   background: #e74c3c;
+}
+
+.mctt-srv-status.starting .mctt-srv-dot {
+  background: #f39c12;
 }
 
 .mctt-srv-memory {
