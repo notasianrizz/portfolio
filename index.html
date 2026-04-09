@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>tame.gg — Andrew Zandi</title>
+  <title>tame.gg</title>
 
-  <!-- Discord / Open Graph Embed -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tame.gg" />
   <meta property="og:site_name" content="tame.gg" />
@@ -19,7 +18,6 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="pages.css" />
 
-  <!-- Vercel Web Analytics -->
   <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
   <script>window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };</script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
@@ -27,12 +25,9 @@
 
 <body>
 
-  <!-- ── Boot Screen ── -->
   <div id="boot-screen">
     <div class="boot-logo">tame<em>.gg</em></div>
-    <div class="boot-bar-track">
-      <div class="boot-bar-fill"></div>
-    </div>
+    <div class="boot-bar-track"><div class="boot-bar-fill"></div></div>
   </div>
 
   <canvas id="bg-canvas"></canvas>
@@ -47,10 +42,11 @@
   </div>
 
   <nav>
-    <a href="/" class="logo">tame<em>.gg</em></a>
+    <a href="/" class="logo active">tame<em>.gg</em></a>
     <ul class="nav-links">
-      <li><a href="/now">Now</a></li>
+      <li><a href="/status">Status</a></li>
       <li><a href="/portfolio">Portfolio</a></li>
+      <li><a href="/socials">Socials</a></li>
       <li><a href="/mctt">MCTT</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -61,32 +57,20 @@
   <div class="mobile-menu" id="mobileMenu">
     <div class="mm-overlay" id="mmOverlay"></div>
     <div class="mm-panel">
-      <a href="/" class="mm-link">Home</a>
-      <a href="/now" class="mm-link">Now</a>
+      <a href="/" class="mm-link active">Home</a>
+      <a href="/status" class="mm-link">Status</a>
       <a href="/portfolio" class="mm-link">Portfolio</a>
+      <a href="/socials" class="mm-link">Socials</a>
       <a href="/mctt" class="mm-link">MCTT</a>
       <div class="mm-foot">tame<em>.gg</em></div>
     </div>
   </div>
 
-  <!-- ── Hero ── -->
+  <!-- ── Hub Hero ── -->
   <section id="hero">
     <div class="grid-lines"></div>
-    <p class="hero-eyebrow">Charlotte, NC &nbsp;&middot;&nbsp; Seattle, WA &nbsp;&middot;&nbsp; Influencer</p>
-    <h1 class="hero-name">Andrew <em>Zandi</em><img src="https://flagofiran.com/files/flag-of-iran-emoji-ios.png"
-        alt="Pahlavi Iranian Flag" title="Lion & Sun — Imperial Iran"
-        style="height:0.82em;width:auto;display:inline-block;vertical-align:middle;margin-left:0.18em;position:relative;top:-0.04em;">
-    </h1>
-    <p class="hero-domain">tame.gg</p>
-
-    <div class="hero-socials">
-      <a href="https://instagram.com/andrew_zandi" target="_blank" class="soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
-      <a href="https://github.com/notasianrizz" target="_blank" class="soc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub</a>
-      <a href="https://linkedin.com/in/andrewzandi" target="_blank" class="soc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
-      <a href="https://discord.com/users/asianrizz" target="_blank" class="soc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/></svg>Discord</a>
-      <a href="https://www.tiktok.com/@andrew_zandi" target="_blank" class="soc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.74a4.85 4.85 0 01-1.01-.05z"/></svg>TikTok</a>
-      <a href="https://last.fm/user/pursian" target="_blank" class="soc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10.584 17.21l-.88-2.392s-1.43 1.596-3.573 1.596c-1.897 0-3.244-1.65-3.244-4.296 0-3.38 1.706-4.596 3.38-4.596 2.41 0 3.18 1.562 3.84 3.564l.88 2.75c.88 2.667 2.53 4.81 7.292 4.81 3.41 0 5.72-1.046 5.72-3.794 0-2.22-1.265-3.365-3.63-3.915l-1.754-.385c-1.21-.275-1.567-.77-1.567-1.595 0-.935.742-1.485 1.953-1.485 1.32 0 2.035.495 2.145 1.705l2.75-.33C23.758 7.098 22.219 6 19.334 6c-3.047 0-4.752 1.43-4.752 3.795 0 1.815.88 2.97 3.08 3.52l1.87.44c1.375.33 1.98.88 1.98 1.815 0 1.045-.99 1.485-2.914 1.485-2.832 0-3.998-1.485-4.69-3.52l-.88-2.75C12.317 8.047 10.724 6 7.017 6 3.502 6 1 8.39 1 12.228c0 3.74 2.117 6.075 5.775 6.075 2.695 0 3.809-1.09 3.809-1.09z"/></svg>Last.fm</a>
-    </div>
+    <p class="hero-eyebrow">andrew's corner of the internet</p>
+    <h1 class="hero-name">tame<em>.gg</em></h1>
 
     <div class="scroll-hint">
       <span>Scroll</span>
@@ -94,31 +78,29 @@
     </div>
   </section>
 
-  <!-- ── Hub Cards ── -->
+  <!-- ── Hub Navigation ── -->
   <section id="hub">
     <div class="sec-inner">
-      <p class="sec-lbl rv">Explore</p>
-      <h2 class="sec-h rv">Welcome to <em>tame.gg</em></h2>
 
       <div class="hub-grid">
 
-        <!-- Now Card -->
-        <a href="/now" class="hub-card hub-card-now rv d1">
+        <!-- Status Card -->
+        <a href="/status" class="hub-card hub-card-now rv d1">
           <div class="hub-card-glow"></div>
           <div class="hub-card-top">
             <div class="hub-card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
-            <div class="hub-card-live" id="hubNowLive">
-              <span class="hub-live-dot"></span>
+            <div class="hub-card-live" id="hubStatusLive">
+              <span class="hub-live-dot" id="hubDiscordDot"></span>
               <span id="hubDiscordStatus">offline</span>
             </div>
           </div>
           <div class="hub-card-body">
-            <div class="hub-card-title">/now</div>
-            <div class="hub-card-desc">What I'm doing right now — music, Discord, GitHub, all live.</div>
+            <div class="hub-card-title">/status</div>
+            <div class="hub-card-desc">Music, Discord, GitHub — everything live, right now.</div>
           </div>
-          <div class="hub-card-peek" id="hubMusicPeek">
+          <div class="hub-card-peek">
             <span class="hub-peek-icon">&#127925;</span>
             <span class="hub-peek-text" id="hubMusicText">Loading...</span>
           </div>
@@ -135,30 +117,41 @@
           </div>
           <div class="hub-card-body">
             <div class="hub-card-title">/portfolio</div>
-            <div class="hub-card-desc">Work experience, education, and everything I've built along the way.</div>
+            <div class="hub-card-desc">Work experience, education, and everything I've built.</div>
           </div>
-          <div class="hub-card-peek">
-            <span class="hub-peek-icon">&#128293;</span>
-            <span class="hub-peek-text">Dave's Hot Chicken &middot; Tesla &middot; CVS &middot; Panera</span>
+          <div class="hub-card-arrow">&rarr;</div>
+        </a>
+
+        <!-- Socials Card -->
+        <a href="/socials" class="hub-card hub-card-socials-link rv d3">
+          <div class="hub-card-glow"></div>
+          <div class="hub-card-top">
+            <div class="hub-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </div>
+          </div>
+          <div class="hub-card-body">
+            <div class="hub-card-title">/socials</div>
+            <div class="hub-card-desc">Instagram, TikTok, Discord, GitHub, and more.</div>
           </div>
           <div class="hub-card-arrow">&rarr;</div>
         </a>
 
         <!-- MCTT Card -->
-        <a href="/mctt" class="hub-card hub-card-mctt rv d3">
+        <a href="/mctt" class="hub-card hub-card-mctt rv d4">
           <div class="hub-card-glow"></div>
           <div class="hub-card-top">
             <div class="hub-card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
             </div>
             <div class="hub-card-live" id="hubMcttLive">
-              <span class="hub-live-dot"></span>
+              <span class="hub-live-dot" id="hubMcttDot"></span>
               <span id="hubMcttStatus">checking</span>
             </div>
           </div>
           <div class="hub-card-body">
             <div class="hub-card-title">/mctt</div>
-            <div class="hub-card-desc">MCTT Minecraft server network — live status, player count, and more.</div>
+            <div class="hub-card-desc">MCTT Minecraft network — live server status and player count.</div>
           </div>
           <div class="hub-card-peek">
             <span class="hub-peek-icon">&#9961;&#65039;</span>
@@ -167,41 +160,13 @@
           <div class="hub-card-arrow">&rarr;</div>
         </a>
 
-        <!-- Socials Card -->
-        <div class="hub-card hub-card-socials rv d4">
-          <div class="hub-card-glow"></div>
-          <div class="hub-card-top">
-            <div class="hub-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </div>
-          </div>
-          <div class="hub-card-body">
-            <div class="hub-card-title">Socials</div>
-            <div class="hub-card-desc">Find me everywhere.</div>
-          </div>
-          <div class="hub-socials-row">
-            <a href="https://instagram.com/andrew_zandi" target="_blank" class="hub-soc-link">Instagram</a>
-            <a href="https://github.com/notasianrizz" target="_blank" class="hub-soc-link">GitHub</a>
-            <a href="https://discord.gg/mctt" target="_blank" class="hub-soc-link">Discord</a>
-            <a href="https://www.tiktok.com/@andrew_zandi" target="_blank" class="hub-soc-link">TikTok</a>
-            <a href="https://linkedin.com/in/andrewzandi" target="_blank" class="hub-soc-link">LinkedIn</a>
-            <a href="https://last.fm/user/pursian" target="_blank" class="hub-soc-link">Last.fm</a>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
   <footer>
     <div class="foot-logo">tame<em>.gg</em></div>
-    <div class="foot-socs">
-      <a href="https://instagram.com/andrew_zandi" target="_blank" class="fsoc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-      <a href="https://github.com/notasianrizz" target="_blank" class="fsoc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
-      <a href="https://discord.com/users/asianrizz" target="_blank" class="fsoc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/></svg></a>
-      <a href="https://last.fm/user/pursian" target="_blank" class="fsoc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10.584 17.21l-.88-2.392s-1.43 1.596-3.573 1.596c-1.897 0-3.244-1.65-3.244-4.296 0-3.38 1.706-4.596 3.38-4.596 2.41 0 3.18 1.562 3.84 3.564l.88 2.75c.88 2.667 2.53 4.81 7.292 4.81 3.41 0 5.72-1.046 5.72-3.794 0-2.22-1.265-3.365-3.63-3.915l-1.754-.385c-1.21-.275-1.567-.77-1.567-1.595 0-.935.742-1.485 1.953-1.485 1.32 0 2.035.495 2.145 1.705l2.75-.33C23.758 7.098 22.219 6 19.334 6c-3.047 0-4.752 1.43-4.752 3.795 0 1.815.88 2.97 3.08 3.52l1.87.44c1.375.33 1.98.88 1.98 1.815 0 1.045-.99 1.485-2.914 1.485-2.832 0-3.998-1.485-4.69-3.52l-.88-2.75C12.317 8.047 10.724 6 7.017 6 3.502 6 1 8.39 1 12.228c0 3.74 2.117 6.075 5.775 6.075 2.695 0 3.809-1.09 3.809-1.09z"/></svg></a>
-    </div>
-    <p class="foot-copy">&copy; 2026 tame.gg &middot; Andrew Zandi &middot; Powered by Claude & Gemini. Antigravity on top!</p>
+    <p class="foot-copy">&copy; 2026 tame.gg</p>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

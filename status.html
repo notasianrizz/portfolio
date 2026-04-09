@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MCTT Network — tame.gg</title>
+  <title>Live Status — tame.gg</title>
 
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tame.gg/mctt" />
+  <meta property="og:url" content="https://tame.gg/status" />
   <meta property="og:site_name" content="tame.gg" />
-  <meta property="og:title" content="MCTT Network Status" />
-  <meta property="og:description" content="Live server status for the MCTT Minecraft network" />
+  <meta property="og:title" content="Live Status — tame.gg" />
+  <meta property="og:description" content="A live snapshot of what Andrew is up to right now" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,10 +43,10 @@
   <nav>
     <a href="/" class="logo">tame<em>.gg</em></a>
     <ul class="nav-links">
-      <li><a href="/status">Status</a></li>
+      <li><a href="/status" class="active">Status</a></li>
       <li><a href="/portfolio">Portfolio</a></li>
       <li><a href="/socials">Socials</a></li>
-      <li><a href="/mctt" class="active">MCTT</a></li>
+      <li><a href="/mctt">MCTT</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -57,80 +57,113 @@
     <div class="mm-overlay" id="mmOverlay"></div>
     <div class="mm-panel">
       <a href="/" class="mm-link">Home</a>
-      <a href="/status" class="mm-link">Status</a>
+      <a href="/status" class="mm-link active">Status</a>
       <a href="/portfolio" class="mm-link">Portfolio</a>
       <a href="/socials" class="mm-link">Socials</a>
-      <a href="/mctt" class="mm-link active">MCTT</a>
+      <a href="/mctt" class="mm-link">MCTT</a>
       <div class="mm-foot">tame<em>.gg</em></div>
     </div>
   </div>
 
-  <!-- ── MCTT Hero ── -->
+  <!-- ── Hero ── -->
   <section id="hero" class="page-hero">
     <div class="grid-lines"></div>
-    <p class="hero-eyebrow">Minecraft Server Network</p>
-    <h1 class="hero-name">MCTT <em>Network</em></h1>
-    <p class="hero-domain">play.tame.gg</p>
-
-    <div class="hero-cta">
-      <button class="mctt-copy-btn" id="copyIp" onclick="navigator.clipboard.writeText('play.tame.gg').then(()=>{this.querySelector('span').textContent='Copied!';setTimeout(()=>this.querySelector('span').textContent='Copy Server IP',1500)})">
-        <div class="btn-pulse"></div>
-        <span>Copy Server IP</span>
-        <span class="arr">&rarr;</span>
-      </button>
-    </div>
+    <p class="hero-eyebrow">Real-time</p>
+    <h1 class="hero-name">Live <em>Status</em></h1>
+    <p class="hero-domain">Everything I'm doing at this exact moment</p>
   </section>
 
-  <!-- ── Network Status ── -->
-  <section id="mctt-status">
+  <!-- ── Live Activity ── -->
+  <section id="now-activity">
     <div class="sec-inner">
-      <p class="sec-lbl rv">Network Status</p>
-      <h2 class="sec-h rv">Server <em>Overview</em></h2>
+      <p class="sec-lbl rv">Live Activity</p>
+      <h2 class="sec-h rv">What I'm <em>up to</em></h2>
 
-      <div class="mctt-network-banner rv d1" id="networkBanner">
-        <div class="mctt-net-left">
-          <div class="mctt-net-status">
-            <div class="mctt-status-dot" id="netDot"></div>
-            <span class="mctt-status-text" id="netStatus">Checking...</span>
-          </div>
-          <div class="mctt-net-address">play.tame.gg</div>
-        </div>
-        <div class="mctt-net-right">
-          <div class="mctt-net-players">
-            <span class="mctt-players-count" id="netPlayers">--</span>
-            <span class="mctt-players-label">players online</span>
-          </div>
-          <div class="mctt-net-version" id="netVersion"></div>
-        </div>
-      </div>
+      <div class="now-grid">
 
-      <div class="mctt-server-grid" id="serverGrid">
-        <div class="mctt-loading rv d2">Loading servers...</div>
-      </div>
-    </div>
-  </section>
+        <!-- Spotify / Music -->
+        <div class="now-card now-card-wide rv d1">
+          <div class="now-card-header">
+            <span class="now-card-icon">&#127925;</span>
+            <span class="now-card-title">Music</span>
+            <div class="now-live-badge" id="nowMusicBadge">
+              <span class="now-live-dot"></span>
+              <span id="nowMusicStatus">Checking...</span>
+            </div>
+          </div>
+          <div class="now-music-content">
+            <div class="now-music-art-wrap">
+              <div class="now-music-art" id="nowMusicArt" style="display:flex;align-items:center;justify-content:center;font-size:2rem;">&#127925;</div>
+            </div>
+            <div class="now-music-info">
+              <div class="now-music-song" id="nowMusicSong">Loading...</div>
+              <div class="now-music-artist" id="nowMusicArtist">&mdash;</div>
+              <div class="now-music-bars" id="nowMusicBars">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+          <div class="now-lyrics-panel" id="nowLyricsPanel">
+            <div class="now-lyrics-header">
+              <span>&#127908; Live Lyrics</span>
+              <button class="now-lyrics-resync" id="nowLyricsResync" title="Resync">&#8635; Resync</button>
+            </div>
+            <div class="now-lyrics-scroll" id="nowLyricsScroll">
+              <div class="now-lyrics-lines" id="nowLyricsLines"></div>
+            </div>
+            <div class="now-lyrics-footer">
+              <span class="lyrics-src">via lrclib.net</span>
+            </div>
+          </div>
+        </div>
 
-  <!-- ── Community ── -->
-  <section id="community">
-    <div class="sec-inner">
-      <p class="sec-lbl rv">Community</p>
-      <h2 class="sec-h rv">Join the <em>server</em></h2>
-      <div class="comm-grid">
-        <div>
-          <div class="comm-text rv d1">
-            <p>MCTT is a Discord community for minecraft, internet culture, music, and just having a good time. Join us and hop on the SMP.</p>
+        <!-- Discord Presence -->
+        <div class="now-card rv d2">
+          <div class="now-card-header">
+            <span class="now-card-icon">&#127918;</span>
+            <span class="now-card-title">Discord</span>
           </div>
-          <br/>
-          <a href="https://discord.gg/mctt" target="_blank" class="soc rv d2" style="display:inline-flex;width:fit-content;margin-top:.5rem;">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/></svg>
-            Join the Discord
-          </a>
-        </div>
-        <div class="rv d2">
-          <div class="disc-wrap">
-            <iframe id="discordWidget" src="https://discord.com/widget?id=1012876825573204048&theme=light" width="100%" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" style="display:block;"></iframe>
+          <div class="now-discord-content">
+            <div class="now-discord-user">
+              <div class="now-discord-avatar-wrap">
+                <img class="now-discord-avatar" id="nowDiscAvatar" src="" alt="avatar" onerror="this.style.display='none'" />
+                <div class="now-discord-dot" id="nowDiscDot"></div>
+              </div>
+              <div>
+                <div class="now-discord-name">asianrizz</div>
+                <div class="now-discord-status" id="nowDiscStatus">Fetching...</div>
+              </div>
+            </div>
+            <div class="now-discord-activity" id="nowDiscActivity" style="display:none;">
+              <div class="now-discord-act-label">Currently</div>
+              <div class="now-discord-act-name" id="nowDiscActName"></div>
+              <div class="now-discord-act-detail" id="nowDiscActDetail"></div>
+            </div>
           </div>
         </div>
+
+        <!-- GitHub -->
+        <div class="now-card rv d3">
+          <div class="now-card-header">
+            <span class="now-card-icon">&#128187;</span>
+            <span class="now-card-title">GitHub</span>
+          </div>
+          <div class="now-github-content">
+            <div class="now-github-user">
+              <img class="now-github-avatar" src="https://github.com/notasianrizz.png" alt="avatar" />
+              <div>
+                <div class="now-github-name">notasianrizz</div>
+                <div class="now-github-stats" id="nowGhStats">Fetching...</div>
+              </div>
+            </div>
+            <div class="now-github-activity" id="nowGhActivity" style="display:none;">
+              <div class="now-github-act-label">Latest</div>
+              <div class="now-github-act-type" id="nowGhActType"></div>
+              <div class="now-github-act-repo" id="nowGhActRepo"></div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -148,6 +181,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="shared.js"></script>
-  <script src="mctt.js"></script>
+  <script src="status.js"></script>
 </body>
 </html>

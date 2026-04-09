@@ -13,7 +13,7 @@ function connectLanyard() {
     }
     if (msg.op === 0 && (msg.t === 'INIT_STATE' || msg.t === 'PRESENCE_UPDATE')) {
       const status = msg.d.discord_status || 'offline';
-      const dot = document.querySelector('#hubNowLive .hub-live-dot');
+      const dot = document.getElementById('hubDiscordDot');
       const text = document.getElementById('hubDiscordStatus');
       if (dot) {
         dot.className = 'hub-live-dot ' + status;

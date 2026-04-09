@@ -1044,3 +1044,146 @@
     display: none;
   }
 }
+
+/* ══════════════════════════════════════════
+   /socials — Social Links Page
+   ══════════════════════════════════════════ */
+
+.soc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.2rem;
+  margin-top: 3rem;
+}
+
+.soc-card {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem 1.6rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color .3s, transform .3s, box-shadow .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.soc-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent2), var(--accent));
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.soc-card:hover {
+  border-color: var(--accent2);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px -10px rgba(200, 169, 110, .2);
+}
+
+.soc-card-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border-radius: 12px;
+  transition: background .3s;
+}
+
+.soc-card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.soc-card:hover .soc-card-icon {
+  background: rgba(200, 169, 110, .12);
+}
+
+.soc-card-body {
+  flex: 1;
+}
+
+.soc-card-platform {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: .95rem;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.soc-card-handle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .82rem;
+  color: var(--text-muted);
+  margin-top: .2rem;
+}
+
+.soc-card-arrow {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  transition: color .3s, transform .3s;
+  flex-shrink: 0;
+}
+
+.soc-card:hover .soc-card-arrow {
+  color: var(--accent2);
+  transform: translateX(3px);
+}
+
+/* ── Socials CTA ── */
+.soc-cta {
+  margin-top: 5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.soc-cta-text {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: var(--text);
+}
+
+.soc-cta-text em {
+  font-style: italic;
+  color: var(--accent2);
+}
+
+.soc-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  padding: .95rem 2.4rem;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 100px;
+  text-decoration: none;
+  font-family: 'Syne', sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  transition: transform .25s, box-shadow .25s, background .45s, color .45s;
+  box-shadow: 0 4px 24px var(--shadow);
+}
+
+.soc-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+@media (max-width: 600px) {
+  .soc-grid {
+    grid-template-columns: 1fr;
+  }
+}
