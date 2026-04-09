@@ -14,11 +14,8 @@ let cachedData = null;
 let cacheTime = 0;
 const CACHE_TTL = 15000; // 15 seconds
 
-// Servers to display publicly (by name substring)
-const PUBLIC_SERVERS = [
-  'MCTTv1', 'MCTTv2', 'MCTTv3', 'hub', 'velo',
-  'parkour', 'one block', 'AK01'
-];
+// Servers to exclude from public display
+const EXCLUDED_SERVERS = ['dev', 'restapi'];
 
 function classifyServer(name, env) {
   const lower = name.toLowerCase();
@@ -26,14 +23,15 @@ function classifyServer(name, env) {
   if (lower.includes('velo') || jar.includes('bungeecord')) return 'proxy';
   if (lower.includes('hub')) return 'hub';
   if (lower.includes('parkour') || lower.includes('minigame')) return 'minigame';
+  if (lower.includes('one block') || lower.includes('modded')) return 'modpack';
   if (lower.includes('mctt') || lower.includes('smp')) return 'survival';
-  if (lower.includes('ak01') || lower.includes('archive')) return 'survival';
+  if (lower.includes('archive')) return 'survival';
   return 'server';
 }
 
 function cleanServerName(name) {
-  // Remove "tame | " prefix
-  return name.replace(/^tame\s*\|\s*/i, '').trim();
+  // Remove any "category | " prefix (e.g. "archives | ", "minigame | ", "tame | ")
+  return name.replace(/^[^|]+\|\s*/i, '').trim();
 }
 
 module.exports = async (req, res) => {
@@ -73,13 +71,8 @@ module.exports = async (req, res) => {
       servers = (pteroData.data || [])
         .map(s => s.attributes)
         .filter(s => {
-          const name = s.name || '';
-          return PUBLIC_SERVERS.some(pub => name.toLowerCase().includes(pub.toLowerCase()));
-        })
-        .filter(s => {
-          // Exclude dev servers
           const name = (s.name || '').toLowerCase();
-          return !name.includes('dev') && !name.includes('restapi');
+          return !EXCLUDED_SERVERS.some(ex => name.includes(ex));
         })
         .map(s => ({
           name: cleanServerName(s.name),
