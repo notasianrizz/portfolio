@@ -69,6 +69,7 @@ function renderLyrics(result) {
     currentLyrics = null;
   }
   panel.classList.add('visible');
+  panel.classList.add('live');
 }
 
 function lyricsSyncLoop() {
@@ -106,7 +107,8 @@ function startLyricsSync() {
 }
 
 function hideLyricsPanel() {
-  document.getElementById('nowLyricsPanel').classList.remove('visible');
+  const panel = document.getElementById('nowLyricsPanel');
+  panel.classList.remove('visible', 'live');
   if (lyricsSyncRAF) cancelAnimationFrame(lyricsSyncRAF);
   lyricsSyncRAF = null;
   currentLyrics = null;
@@ -126,14 +128,17 @@ function updateMusicWidget({ song, artist, artUrl, isLive }) {
   const badge = document.getElementById('nowMusicBadge');
   const statusEl = document.getElementById('nowMusicStatus');
   const bars = document.getElementById('nowMusicBars');
+  const musicCard = document.querySelector('.now-card-wide');
   if (isLive) {
     badge.classList.add('live');
     statusEl.textContent = 'Now Playing';
     if (bars) bars.classList.add('active');
+    if (musicCard) musicCard.classList.add('live');
   } else {
     badge.classList.remove('live');
     statusEl.textContent = 'Last Played';
     if (bars) bars.classList.remove('active');
+    if (musicCard) musicCard.classList.remove('live');
   }
   if (artUrl && !artUrl.includes('2a96cbd8b46e442fc41c2b86b821562f')) {
     const artEl = document.getElementById('nowMusicArt');
