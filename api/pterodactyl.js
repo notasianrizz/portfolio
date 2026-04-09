@@ -16,7 +16,7 @@ const CACHE_TTL = 15000; // 15 seconds
 
 // Servers to display publicly (by name substring)
 const PUBLIC_SERVERS = [
-  'MCTT01', 'MCTT02', 'MCTTv3', 'hub', 'velo',
+  'MCTTv1', 'MCTTv2', 'MCTTv3', 'hub', 'velo',
   'parkour', 'one block', 'AK01'
 ];
 
