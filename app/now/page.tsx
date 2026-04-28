@@ -103,9 +103,6 @@ export default function NowPage() {
                       id="nowDiscAvatar"
                       src=""
                       alt="avatar"
-                      onError={(e) => {
-                        (e.currentTarget as HTMLImageElement).style.display = "none";
-                      }}
                     />
                     <div className="now-discord-dot" id="nowDiscDot"></div>
                   </div>
