@@ -103,6 +103,7 @@ export default function StatusPage() {
                       id="nowDiscAvatar"
                       src=""
                       alt="avatar"
+                      style={{ display: "none" }}
                     />
                     <div className="now-discord-dot" id="nowDiscDot"></div>
                   </div>
